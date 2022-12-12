@@ -1,0 +1,19 @@
+spring:
+  jpa:
+    show-sql: on
+    open-in-view: off
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql: on
+        highlight_sql: on
+      org.hibernate.envers:
+        audit_table_suffix: "_audit"
+        revision_field_name: "revision"
+        revision_type_field_name: "revision_type"
+
+  datasource:
+    username: "spring-boot-envers-demo-user"
+    password: "spring-boot-envers-demo-password"
+    url: "jdbc:postgresql://localhost:7777/spring-boot-envers-demo-db"

@@ -1,0 +1,20 @@
+services:
+  spring-boot-envers-demo-db:
+    ports:
+      - "127.0.0.1:7777:5432"
+    image: postgres
+    environment:
+      - POSTGRES_DB=spring-boot-envers-demo-db
+      - POSTGRES_USER=spring-boot-envers-demo-user
+      - POSTGRES_PASSWORD=spring-boot-envers-demo-password
+    networks:
+      - spring-boot-envers-demo-network
+    container_name: spring-boot-envers-demo-db-container
+    volumes:
+      - spring-boot-envers-demo-db-data-volume:/var/lib/postgresql/data
+networks:
+  spring-boot-envers-demo-network:
+    name: spring-boot-envers-demo-network
+volumes:
+  spring-boot-envers-demo-db-data-volume:
+    name: spring-boot-envers-demo-db-data-volume
